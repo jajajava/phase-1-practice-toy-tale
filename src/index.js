@@ -13,3 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function getToys(){
+  fetch('http://localhost:3000/toys')
+  .then(res => res.json())
+}
+
+function newToy(toy){
+fetch('http://localhost:3000/toys', {
+  method: 'POST',
+  headers: {'Content-type':'applications/json'},
+  body: JSON.stringify({
+    "name": toy.name.value,
+    "image": toy.image.value,
+    "likes": 0
+
+})
+})}
+
+function renderToys(){
+  (getToys()).forEach(createElement('div.card')
+
+)}
